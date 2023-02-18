@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Results - What is an Author? (text generation with GPT2){% endblock %}
+{% block head %}
+  {{ super() }}
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+{% endblock %}
+{% block content %}
+ <img src="{{ url_for('static', filename='chatbot.svg') }}" class="icon" />
+ <h1>Am I an Author?</h1>
+ <p>Generated Text:</p>
+ <p contenteditable="true">{{text}}</p>
+{% endblock %}

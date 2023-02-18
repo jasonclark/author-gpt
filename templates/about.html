@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}About - What is an Author? (text generation with GPT2){% endblock %}
+{% block content %}
+  <img src="{{ url_for('static', filename='chatbot.svg') }}" class="icon" />
+  <h1>About - What is an Author?</h1>
+    <div class="content">
+      <p>What is an Author? is a sample application to demonstrate how Large Language Models can generate text. It uses GPT2 to allow someone to prompt the model to write and compose.</p>
+      <p>Use the form to ask questions and engage with the AIsistant. You can create your own line of writing. Some sample opening lines:</p>
+      <ul>
+        <li>It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn't know what I was doing in New York.</li>
+        <li>It is a truth universally acknowledged, that a single man in possession of a good fortune must be in want of a wife.</li>
+        <li>This is my favorite book in all the world, though I have never read it.</li>
+        <li>It was a bright cold day in April, and the clocks were striking thirteen.</li>
+        <li>We were somewhere around Barstow on the edge of the desert when the drugs began to take hold.</li>
+      </ul>
+    </div>
+{% endblock %}
