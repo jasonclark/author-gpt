@@ -9,12 +9,37 @@
 {% endblock %}
 {% block content %}
  <img src="{{ url_for('static', filename='chatbot.svg') }}" class="icon" />
- <h1>What is an Author? (text generation with GPT2)</h1>
- <form action="{{ url_for('result') }}" method="post" enctype="multipart/form-data">
+ <h1>What is an Author?</h1>
+ <h2>(text generation with GPT2)</h2>
+ <span id="message"><img alt="Generating and loading a reponse... Am I an author yet?" src="{{ url_for('static', filename='loading.svg') }}" /> Generating and loading a reponse... Am I an author yet?</span>
+ <form id="form" action="{{ url_for('result') }}" method="post" enctype="multipart/form-data">
   <textarea id="text" name="text" required placeholder="Give me a prompt to write from..." rows="5" cols="33"></textarea>
   <p>How many words do you want me to write?
     <input type="number" name="n">
   </p>
-  <input type="submit" value="Generate">
-</form>
+  <input id="submitButton" type="submit" value="Generate">
+  </form>
+  <script>
+  const form = document.getElementById('form');
+  const submitButton = document.getElementById('submitButton');
+  const message = document.getElementById('message');
+  let submitTimer;
+
+  //Hide the text
+  message.style.display = 'none';
+  
+  //Set up form submit handling
+  form.addEventListener('submit', handleSubmit);
+
+  function handleSubmit(event) {
+    console.log('submitTimer set');
+    event.preventDefault();
+    //Display the loading message
+    message.style.display = 'block';
+    submitTimer = setTimeout(() => {
+      this.submit();
+      console.log('Submitted after 10 seconds');
+    }, 10000)
+  };
+  </script>
 {% endblock %}
